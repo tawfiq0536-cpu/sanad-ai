@@ -1,0 +1,1 @@
+- [Chatbot AI provider fallback](ai-provider-fallback.md) — Gemini → NVIDIA NIM → direct Excel answers; production needs republish to pick up the latest API changes.

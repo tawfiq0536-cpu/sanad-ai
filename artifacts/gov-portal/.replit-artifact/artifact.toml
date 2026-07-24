@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "منصة سند الذكية للوائح والأنظمة"
+version = "1.0.0"
+id = "artifacts/gov-portal"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18350
+
+[services.development]
+run = "pnpm --filter @workspace/gov-portal run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/gov-portal", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/gov-portal/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18350"
+BASE_PATH = "/"
